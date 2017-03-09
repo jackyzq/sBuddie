@@ -1,0 +1,122 @@
+//admin_tutors page dynamic html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title sBuddie - Your Best Learning Friends
+    link(href='http://fonts.googleapis.com/css?family=Varela+Round', rel='stylesheet', type='text/css')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', rel='stylesheet')
+    link(href='/css/flexslider.css', rel='stylesheet')
+    link(href='/css/styles.css', rel='stylesheet')
+    link(href='/css/queries.css', rel='stylesheet')
+    link(href='/css/animate.css', rel='stylesheet')
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  body#top2
+    header#homeHeader
+      nav
+        .container-fluid
+          .row
+            .col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-8.col-xs-offset-2
+              nav.pull
+                ul.top-nav
+                  li
+                    a(href='/home/' + ThisUser) Home         
+                  li
+                    a(href='/ask') Ask Questions
+                  li
+                    a(href='/message_receive/' + ThisUser) Messages
+                  li
+                    a(href='/tutors') Tutors
+                  li
+                    a(href='/setting/' + ThisUser)
+                      | Settings
+                      // <span class="indicator"><i class="fa fa-angle-right"></i></span>
+                  if Administration == 1
+                    li
+                      a(href='/adminusers') Administration
+                    li
+                      a(href='/logout') Log out 
+                  else 
+                     li
+                      a(href='/logout') Log out                  
+      section#homeHeader_setion.homeHeader
+        .container
+          .row
+            .col-md-2.text-center
+              h1 sBuddie
+            .col-md-6.text-center
+              form(action='/search_post', autocomplete='on', method='post')
+                input(type='text', name='keyword', value='', placeholder='Enter a keyword', required='')
+                input(type='submit', name='', value='Search')
+            //
+              <div class="col-md-2 text-center">
+              < a href=" " class="sort-btn">Ask</ a>
+              </div>
+            .col-md-3.col-md-offset-1.text-center
+              h1
+                img(src="/profile/"+ThisUser+"/profileImage.png", alt='User Home', width='35', height='35', style='vertical-align:middle')
+                span  #{ThisUser}
+              a#nav-toggle.nav_slide_button(href='#')
+                span
+      
+      .container
+        .row
+          .admin_pgbt
+            a.delete-btn(href='/adminusers') Users
+            a.delete-btn(href='/admintutors') Tutors
+            a.delete-btn(href='/adminposts') Posts   
+      .container.ban_table
+        table.user_table
+          tr
+            th UserName
+            th CourseID
+            th Description
+            th Application
+            th Operation
+          each tutor in tutor_table
+            tr
+              td #{tutor.userID}
+              td #{tutor.courseID}
+              td 
+                form(action='/getDescription', method='POST', target="_blank")
+                  input(type='hidden', name="tutor_id" value= tutor.userID)
+                  input(type='hidden', name="course_id" value= tutor.courseID)
+                  input.delete-btn(type='submit', value='Description')
+              td 
+                form(action='/getApplication', method='POST', target="_blank")
+                  input(type='hidden', name="tutor_id" value= tutor.userID)
+                  input(type='hidden', name="course_id" value= tutor.courseID)
+                  input.delete-btn(type='submit', value='Description')
+              td
+                form(action='/approveApplication', method='POST')
+                  input(type='hidden', name="tutor_id" value= tutor.userID)
+                  input(type='hidden', name="course_id" value= tutor.courseID)
+                  input(type='hidden', name="admin_id" value= ThisUser)
+                  input.delete-btn(type='submit', value='Approve')
+                form(action='/deleteApplication', method='POST')
+                  input(type='hidden', name="tutor_id" value= tutor.userID)
+                  input(type='hidden', name="course_id" value= tutor.courseID)
+                  input(type='hidden', name="admin_id" value= ThisUser)
+                  input.delete-btn(type='submit', value='Delete')
+        div
+          // /.container
+           
+          script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+          // Include all compiled plugins (below), or include individual files as needed
+          script(src='/js/waypoints.min.js')
+          script(src='/js/bootstrap.min.js')
+          script(src='/js/scripts.js')
+          script(src='/js/jquery.flexslider.js')
+          script(src='/js/modernizr.js')
+          script(src='/js/jquery.js')
+          // like button
+          script(src='/js/jquery.min.js')
+          script(src='/js/highlight.js')
+          script(src='/js/bootstrap-switch.js')
+          script(src='/js/main.js')

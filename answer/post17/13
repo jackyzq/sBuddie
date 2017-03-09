@@ -1,0 +1,7 @@
+Bellman-Ford algorithm is a single-source shortest path algorithm, which allows for negative edge weight and can detect negative cycles in a graph.
+
+Dijkstra algorithm is also another single-source shortest path algorithm. However, the weight of all the edges must be non-negative.
+
+For your case, as far as the total cost is concerned, there will be no difference, since the edges in the graph have non-negative weight. However, Dijkstra's algorithm is usually used, since the typical implementation with binary heap has Theta((|E|+|V|)log|V|) time complexity, while Bellman-Ford algorithm has O(|V||E|) complexity.
+
+If there are more than 1 path that has minimum cost, the actual path returned is implementation dependent (even for the same algorithm).

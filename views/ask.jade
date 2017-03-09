@@ -1,0 +1,93 @@
+//ask page dynamic html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title sBuddie - Your Best Learning Friends
+    link(href='http://fonts.googleapis.com/css?family=Varela+Round', rel='stylesheet', type='text/css')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', rel='stylesheet')
+    link(href='/css/flexslider.css', rel='stylesheet')
+    link(href='/css/styles.css', rel='stylesheet')
+    link(href='/css/queries.css', rel='stylesheet')
+    link(href='/css/animate.css', rel='stylesheet')
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  body#top2
+    header#homeHeader
+      nav
+        .container-fluid
+          .row
+            .col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-8.col-xs-offset-2
+              nav.pull
+                ul.top-nav
+                  li
+                    a(href='/home/' + ThisUser) Home         
+                  li
+                    a(href='/ask') Ask Questions
+                  li
+                    a(href='/message_receive/' + ThisUser) Messages
+                  li
+                    a(href='/tutors') Tutors
+                  li
+                    a(href='/setting/' + ThisUser)
+                      | Settings
+                      // <span class="indicator"><i class="fa fa-angle-right"></i></span>
+                  if Administration == 1
+                    li
+                      a(href='/adminusers') Administration
+                    li
+                      a(href='/logout') Log out 
+                  else 
+                     li
+                      a(href='/logout') Log out                  
+      section#homeHeader_setion.homeHeader
+        .container
+          .row
+            .col-md-2.text-center
+              h1 sBuddie
+            .col-md-6.text-center
+              form(action='/search_post', autocomplete='on', method='post')
+                input(type='text', name='keyword', value='', placeholder='Enter a keyword', required='')
+                input(type='submit', name='', value='Search')
+            //
+              <div class="col-md-2 text-center">
+              < a href=" " class="sort-btn">Ask</ a>
+              </div>
+            .col-md-3.col-md-offset-1.text-center
+              h1
+                img(src="/profile/"+ThisUser+"/profileImage.png", alt='User Home', width='35', height='35', style='vertical-align:middle')
+                span  #{ThisUser}
+              a#nav-toggle.nav_slide_button(href='#')
+                span
+    
+    .hero
+      .container
+        .col-sm-12.col-lg-12.col-md-12.row.downdowndown
+          form(action = "/insert_post" , method = "post", role='form')
+            .form-group
+              label.set-font(for='Title') Title:
+              input#name.form-control(type='text', name='title', value='', placeholder='Insert Title of Your Post', required='')
+            .form-group
+              label.set-font(for='keywords') Keywords:
+              input#name.form-control(type='text', name='keywords', value='', placeholder='Input up to 5 keywords for your post! (Use " ," to delimit your topics) E.g. CSCI3100, Java, C++, algorithm, mergesort', required='')
+            .form-group
+              label.set-font(for='Question') Question:
+              textarea#comment.form-control.ask_box(name='content', placeholder='Insert your post content', rows='20')
+            button.set_btn(type='submit') Submit
+
+     
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+    // Include all compiled plugins (below), or include individual files as needed
+    script(src='/js/waypoints.min.js')
+    script(src='/js/bootstrap.min.js')
+    script(src='/js/scripts.js')
+    script(src='/js/jquery.flexslider.js')
+    script(src='/js/modernizr.js')
+    // like button
+    script.
+      (function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");

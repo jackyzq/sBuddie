@@ -3,7 +3,7 @@
   "description": "Our CSCI3100 Project. A platform for students to interact.",
   "version": "1.0.0",
   "scripts": {
-    "start": "node ./sbuddierepo/index.js"
+    "start": "node ./index.js"
   },
   "dependencies": {
     "express": "^4.12.3",
