@@ -1,12 +1,15 @@
 {
-  "name": "application-name",
-  "version": "0.0.1",
-  "private": true,
+  "name": "sBuddie",
+  "description": "Our CSCI3100 Project. A platform for students to interact.",
+  "version": "1.0.0",
   "scripts": {
-    "start": "node app.js"
+    "start": "node ./sbuddierepo/index.js"
   },
   "dependencies": {
-    "express": "3.2.6",
-    "jade": "*"
+    "express": "^4.12.3",
+    "body-parser": "~1.15.0",
+    "express-session": "~1.13.0",
+    "jade": "~1.11.0",
+    "multer": "~1.1.0"
   }
 }
