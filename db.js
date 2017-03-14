@@ -7,10 +7,10 @@ var mysql = require("mysql");
 var fs = require('fs');
 //Create connection to database
 var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "5nYjT,P`w#",
-  database: 'sbuddie'
+  host: "us-cdbr-iron-east-03.cleardb.net",
+  user: "b6e5d333d4e527",
+  password: "c361531b",
+  database: 'heroku_c451f9968c9a788'
 });
 //Connect to database
 con.connect(function(err){
